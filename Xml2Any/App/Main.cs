@@ -64,9 +64,11 @@ namespace App
             {
                 try
                 {
-                    var transformer = new XslTransformer();
-                    transformer.Initialize(txtXslFileName.Text);
-                    txtOutput.Text = transformer.GenerateString(openXml.OpenFile());
+                    using (var transformer = new XslTransformer())
+                    {
+                        transformer.Initialize(txtXslFileName.Text);
+                        txtOutput.Text = transformer.GenerateString(openXml.OpenFile());                        
+                    }
                 }
                 catch (Exception ex)
                 {
