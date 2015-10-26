@@ -9,15 +9,14 @@ namespace App
     public class XslTransformer : IDisposable 
     {
         private readonly XslCompiledTransform _transformer;
-        private readonly MemoryStream _ms;
+        private readonly MemoryStream _ms = new MemoryStream();
+        private XmlReader _xmlReader;
         private readonly StreamWriter _sw;
         private StreamReader _sr;
-        private XmlReader _xmlReader;
 
         public XslTransformer()
         {
             _transformer = new XslCompiledTransform();
-            _ms = new MemoryStream();
             _sw = new StreamWriter(_ms);
         }
 

@@ -1,17 +1,11 @@
 ﻿using System;   
 using System.ComponentModel;
-using System.Globalization;
-using System.IO;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Xsl;
 
 namespace App
 {
     public partial class Main : Form
     {
-        private Stream _xmlFileStream;
-
         public Main()
         {
             InitializeComponent();
@@ -68,9 +62,16 @@ namespace App
             }
             else
             {
-                var transformer = new XslTransformer();
-                transformer.Initialize(txtXslFileName.Text);
-                txtOutput.Text = transformer.GenerateString(openXml.OpenFile());
+                try
+                {
+                    var transformer = new XslTransformer();
+                    transformer.Initialize(txtXslFileName.Text);
+                    txtOutput.Text = transformer.GenerateString(openXml.OpenFile());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
