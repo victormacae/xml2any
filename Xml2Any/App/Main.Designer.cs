@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
             this.openXml = new System.Windows.Forms.OpenFileDialog();
             this.txtXmlFileName = new System.Windows.Forms.TextBox();
@@ -60,8 +61,10 @@
             // 
             this.txtXmlFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtXmlFileName.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtXmlFileName.Location = new System.Drawing.Point(48, 12);
             this.txtXmlFileName.Name = "txtXmlFileName";
+            this.txtXmlFileName.ReadOnly = true;
             this.txtXmlFileName.Size = new System.Drawing.Size(515, 20);
             this.txtXmlFileName.TabIndex = 1;
             // 
@@ -91,8 +94,10 @@
             // 
             this.txtXslFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtXslFileName.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtXslFileName.Location = new System.Drawing.Point(48, 38);
             this.txtXslFileName.Name = "txtXslFileName";
+            this.txtXslFileName.ReadOnly = true;
             this.txtXslFileName.Size = new System.Drawing.Size(515, 20);
             this.txtXslFileName.TabIndex = 4;
             // 
@@ -153,6 +158,7 @@
             this.Controls.Add(this.btnLoadXml);
             this.Controls.Add(this.txtXmlFileName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(674, 527);
             this.Name = "Main";
             this.Text = "Xml 2 Any";
